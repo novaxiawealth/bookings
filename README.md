@@ -18,7 +18,7 @@ The page presents multiple meeting types in a clean, professional layout and red
 ---
 
 ## 🗂 Project Structure
-
+/
 ├─ index.html # Main booking page
 ├─ styles.css # Page styling
 └─ assets/
