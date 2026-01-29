@@ -1,0 +1,347 @@
+:root{
+  --green:#4f6035;
+  --yellow:#bda131;
+
+  --bg:#fbfbf7;
+  --surface:#ffffff;
+  --text:#162016;
+  --muted:#5c6a57;
+
+  --shadow: 0 12px 30px rgba(0,0,0,.08);
+  --radius: 18px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 520px at 20% -10%, rgba(189,161,49,.18), transparent 60%),
+    radial-gradient(900px 520px at 95% 10%, rgba(79,96,53,.14), transparent 55%),
+    linear-gradient(180deg, var(--bg), #fff);
+}
+
+.wrap{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width:1500px;
+  margin:0 auto;
+  padding:36px 18px 64px;
+}
+
+/* Language switcher */
+.lang-switch{
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.lang-switch a,
+.lang-switch span{
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lang-switch a:hover{
+  text-decoration: underline;
+}
+
+.lang-switch .active{
+  color: var(--green);
+  cursor: default;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* Hero */
+.hero{
+  text-align:center;
+  margin-bottom:22px;
+  animation: fadeUp .7s .05s ease-out both;
+}
+
+.hero .logo{
+  display:block;
+  margin: 0 auto 5px;
+  height:90px;
+  width:auto;
+}
+
+.hero-logos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-logos img{
+  height: 56px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.hero h1{
+  font-size:clamp(28px,4vw,38px);
+  margin:0 0 10px;
+}
+
+/* Divider */
+.sub{
+  max-width:55ch;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.section-divider-1{
+  height:1px;
+  width:100%;
+  margin: 26px 0 48px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(79,96,53,.35),
+    rgba(189,161,49,.45),
+    rgba(79,96,53,.35),
+    transparent
+  );
+}
+
+.section-divider-2{
+  height:1px;
+  width:100%;
+  margin: 18px 0 8px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(79,96,53,.35),
+    rgba(189,161,49,.45),
+    rgba(79,96,53,.35),
+    transparent
+  );
+}
+
+/* GRID SYSTEM */
+.grid{
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Subpages: one card layout */
+.grid.single{
+  grid-template-columns: minmax(280px, 520px);
+  justify-content: center;
+}
+
+/* ---------- TOP GRID ---------- */
+.grid-top{
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1200px;
+  margin: 0 auto 14px;
+}
+
+.grid-top .card:first-child{
+  grid-column: 2 / span 2;
+}
+
+.grid-top .card:last-child{
+  grid-column: 4 / span 2;
+}
+
+/* ---------- MAIN GRID ---------- */
+.grid-main{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1200px;
+}
+
+/* ---------- TABLET ---------- */
+@media (min-width: 640px) and (max-width: 1023px){
+  .grid-top,
+  .grid-main{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-top .card:first-child,
+  .grid-top .card:last-child{
+    grid-column: auto;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 639px){
+  .grid-top,
+  .grid-main{
+    grid-template-columns: 1fr;
+  }
+
+  .grid-top .card:first-child,
+  .grid-top .card:last-child{
+    grid-column: auto;
+  }
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(79,96,53,.16);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  animation: cardIn .6s ease-out both;
+  height: 100%;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:6px;
+  background: linear-gradient(
+    90deg,
+    var(--green),
+    var(--yellow)
+  );
+}
+
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+
+.grid-top .card:nth-child(1){ animation-delay: .10s; }
+.grid-top .card:nth-child(2){ animation-delay: .18s; }
+
+.grid-main .card:nth-child(1){ animation-delay: .26s; }
+.grid-main .card:nth-child(2){ animation-delay: .34s; }
+.grid-main .card:nth-child(3){ animation-delay: .42s; }
+.grid-main .card:nth-child(4){ animation-delay: .50s; }
+.grid-main .card:nth-child(5){ animation-delay: .58s; }
+.grid-main .card:nth-child(6){ animation-delay: .66s; }
+
+.card h2{
+  margin:10px 0 8px;
+  font-size:20px;
+  text-align: center;
+}
+
+.card p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:16px;
+  text-align: center;
+}
+
+.meta{
+  display:flex;
+  gap:8px;
+  margin-bottom:6px;
+}
+
+.pill{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(79,96,53,.08);
+  border:1px solid rgba(79,96,53,.14);
+  color:var(--green);
+  font-weight:600;
+}
+
+.pill.yellow{
+  background:rgba(189,161,49,.14);
+  border-color:rgba(189,161,49,.25);
+  color:#6a5a14;
+}
+
+/* Button */
+.btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:11px 14px;
+  background:var(--green);
+  color:#fff;
+  text-decoration:none;
+  border-radius:14px;
+  font-weight:700;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.button-row{
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn-small{
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 26px rgba(79,96,53,.25);
+}
+
+.arrow{
+  transition:transform .15s ease;
+}
+
+.btn:hover .arrow{
+  transform:translateX(4px);
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  font-size:13px;
+  line-height:1.2;
+  color:var(--muted);
+  padding: 6px 12px 10px;
+}
+
+/* Animations */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(10px)}
+  to{opacity:1; transform:none}
+}
+
+@keyframes cardIn{
+  from{opacity:0; transform:translateY(10px)}
+  to{opacity:1; transform:none}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
