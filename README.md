@@ -2,7 +2,9 @@
 
 This repository contains a lightweight, static landing page hosted on **GitHub Pages**, designed to allow clients to easily book advisory meetings through **Calendly**.
 
-The page presents multiple meeting types in a clean, professional layout and redirects users directly to the corresponding Calendly scheduling links.
+It includes:
+- a central booking overview page with all meeting types, and
+- dedicated landing pages for individual meeting types, allowing direct links to be shared with clients.
 
 ---
 
@@ -10,7 +12,8 @@ The page presents multiple meeting types in a clean, professional layout and red
 
 - Clean, minimal UI with subtle animations
 - Responsive layout (mobile, tablet, desktop)
-- Multiple meeting types displayed as cards
+- Overview page with multiple meeting types displayed as cards
+- Dedicated landing pages for individual meeting types
 - Direct Calendly integration (no backend required)
 - Custom branding (logo, colors, favicon)
 - Hosted entirely on GitHub Pages
@@ -19,11 +22,40 @@ The page presents multiple meeting types in a clean, professional layout and red
 
 ## 🗂 Project Structure
 ```
-├─ index.html # Main booking page
-├─ styles.css # Page styling
-└─ assets/
-├─ logo.png # Organization logo
-└─ favicon.ico # Site favicon
+/
+├─ index.html                # Redirect or language selector (optional)
+├─ styles.css
+├─ assets/
+|  ├─ favicon.ico
+│  └─ logo.png
+│
+├─ en/
+│  ├─ index.html
+│  └─ meetings/
+|     ├─ advisor.hmtl
+│     ├─ banking.html
+|     ├─ business.html
+|     ├─ call.html
+|     ├─ investment.html
+|     ├─ legal.html
+│     ├─ property.html
+│     ├─ legal.html
+│     └─ tax_accounting.html
+│
+└─ gr/
+   ├─ index.html
+   └─ meetings/
+     ├─ advisor.hmtl
+     ├─ banking.html
+     ├─ business.html
+     ├─ call.html
+     ├─ investment.html
+     ├─ legal.html
+     ├─ property.html
+     ├─ legal.html
+     └─ tax_accounting.html
+
+Each language is organized in its own folder, sharing common styles and assets.
 ```
 ---
 
@@ -57,10 +89,11 @@ To publish:
 
 ## 📅 Booking Flow
 
-1. User selects a meeting type
-2. User is redirected to Calendly
-3. User chooses date & time
-4. Booking is confirmed via Calendly
+1. Client opens a booking page (overview or direct link)
+2. Client selects the meeting option
+3. Client is redirected to Calendly
+4. Date and time are selected
+5. Booking is confirmed via Calendly
 
 ---
 
