@@ -82,7 +82,7 @@ body{
   font-weight: 600;
 }
 
-.site-button a:hover {
+.site-button a, span:hover {
   text-decoration: underline;
 }
 
@@ -366,4 +366,5 @@ body{
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
+
 
