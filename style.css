@@ -1,4 +1,4 @@
-:root{
+﻿:root{
   --green:#4f6035;
   --yellow:#bda131;
 
@@ -55,10 +55,11 @@ body{
 }
 
 .top-action{
-  min-width:190px;
+  width:fit-content;
+  max-width:100%;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;
   gap:12px;
   padding:11px 14px;
   color:var(--green);
@@ -137,7 +138,8 @@ body{
 
   .top-action{
     min-width:0;
-    width:178px;
+    width:fit-content;
+    max-width:calc(100vw - 120px);
     padding:10px 12px;
     font-size:12px;
   }
